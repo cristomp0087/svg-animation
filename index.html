@@ -15,24 +15,26 @@
       background: #0e1220; /* fundo escuro para destacar o SVG */
     }
 
-   
-
     svg {
       width: 500px; /* ajuste do tamanho do SVG na tela */
       height: auto;
       display: block;
     }
   </style>
+
+  <link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
 
-    <?xml version="1.0" encoding="UTF-8"?>
+<div class="scene">
+
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 316.35 192.88">
   <defs>
     <style>
-      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16 {
+        .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16 {
         stroke-miterlimit: 10;
-      }
+        }
 
       .cls-1, .cls-5, .cls-6, .cls-7, .cls-16 {
         stroke-width: .5px;
@@ -101,11 +103,23 @@
       .cls-24 {
         fill: #22315b;
       }
-    </style>
+        </style>
+
+       <symbol id="ball" viewBox="-3 -3 6 6">
+            <circle r="0.5" fill="#edce75"/>
+        </symbol>
+
+        <clipPath id="pitClip" clipPathUnits="userSpaceOnUse">
+            <ellipse cx="106.39" cy="138.93" rx="26.28" ry="5.95"/>
+        </clipPath>
+
   </defs>
+
+     
+
   <g id="reference">
     <image href="background.jpg" width="316.35" height="192.88" x="0" y="0" />
-    <ellipse class="cls-24" cx="106.39" cy="138.93" rx="26.28" ry="5.95"/>
+    <ellipse id="pit" class="cls-24" cx="106.39" cy="138.93" rx="26.28" ry="5.95"/>
   </g>
   <g id="head">
     <path class="cls-18" d="M233.26,120.84c-.08,0-.16,0-.24,0l-11.19-.04c-3.22-.14-9.19-.41-9.07-5.14l-.18-27.8c.24-8.17,3.09-8.12,8.74-8.01.47,0,.95.02,1.46.02l6.14.14c5.2.19,5.4.2,9.82,1,2.85.66,2.94,3.65,3.07,7.45.01.42.03.86.05,1.3l-.73,22.68h0s.4,3.39-1.67,5.91c-1.36,1.65-3.44,2.49-6.18,2.49ZM219.54,80.32c-4.39,0-6.27.72-6.47,7.53l.18,27.8c-.11,4.25,5.33,4.49,8.58,4.64l11.18.04c2.68.05,4.67-.7,5.98-2.23,1.98-2.32,1.63-5.58,1.62-5.61l.73-22.72c-.02-.43-.03-.86-.05-1.29-.12-3.72-.21-6.41-2.66-6.98-4.37-.79-4.57-.8-9.74-.99h-.19s-5.94-.14-5.94-.14c-.51,0-.99-.01-1.46-.02-.63-.01-1.22-.02-1.76-.02Z"/>
@@ -181,8 +195,34 @@
     <g id="eyerbrow_left" data-name="eyerbrow left">
       <path class="cls-10" d="M237.26,79.8c1.26,1.29.03,2.88-.47,2.97-.67.12-.7.1-1.44-.27-1.74-1.47-3.05-1.42-3.45-1.46-.82-.07-1.23-.36-1.48-1.53-.09-.71.68-1.19,1.22-1.39.32-.12,1.46-.54,3.45.14,1.43.69,1.08.43,2.16,1.54Z"/>
     </g>
-  </g>
-</svg>
+</g>
 
+         <g id="balls">
+                
+
+             <!-- Bola 1 -->
+              <use href="#ball" x="200" y="-10">
+                  <animate attributeName="y" from="-30" to="138" dur="2.0s" begin="0s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="78;94;90" dur="2.0s" begin="0s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.9;1" dur="2.0s" begin="0s" repeatCount="indefinite"/>
+              </use>
+
+              <!-- Bola 2 -->
+               <use href="#ball" x="1" y="-25">
+                  <animate attributeName="y" from="-42" to="138" dur="2.3s" begin=".25s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="88;100;92" dur="2.3s" begin=".25s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.9;1" dur="2.3s" begin=".25s" repeatCount="indefinite"/>
+                </use>
+
+             <!-- Bola 3 -->
+                  <use href="#ball" x="96" y="-36">
+    <animate attributeName="y" from="-36" to="138" dur="1.8s" begin=".5s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="96;106;98" dur="1.8s" begin=".5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.9;1" dur="1.8s" begin=".5s" repeatCount="indefinite"/>
+                  </use>
+         </g>
+  
+</svg>
+</div>
 </body>
 </html>
