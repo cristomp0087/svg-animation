@@ -109,9 +109,7 @@
             <circle r="0.5" fill="#edce75"/>
         </symbol>
 
-        <clipPath id="pitClip" clipPathUnits="userSpaceOnUse">
-            <ellipse cx="106.39" cy="138.93" rx="26.28" ry="5.95"/>
-        </clipPath>
+        
 
   </defs>
 
@@ -199,30 +197,97 @@
 
          <g id="balls">
                 
-
              <!-- Bola 1 -->
-              <use href="#ball" x="200" y="-10">
-                  <animate attributeName="y" from="-30" to="138" dur="2.0s" begin="0s" repeatCount="indefinite"/>
-    <animate attributeName="x" values="78;94;90" dur="2.0s" begin="0s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.9;1" dur="2.0s" begin="0s" repeatCount="indefinite"/>
-              </use>
+                <g id="ball1" class="draggable" pointer-events="all">
+                <use href="#ball" x="200" y="-10">
+                    <animate attributeName="y" from="-100" to="138" dur="4s" begin="0s" repeatCount="indefinite"/>
+                    <animate attributeName="x" values="-12;-25;-38" dur="5s" begin="0.1s" repeatCount="indefinite"/>
+                 </use>
+                </g>
+
 
               <!-- Bola 2 -->
+               <g id="ball2" class="draggable" pointer-events="all">
                <use href="#ball" x="1" y="-25">
-                  <animate attributeName="y" from="-42" to="138" dur="2.3s" begin=".25s" repeatCount="indefinite"/>
-    <animate attributeName="x" values="88;100;92" dur="2.3s" begin=".25s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.9;1" dur="2.3s" begin=".25s" repeatCount="indefinite"/>
+                    <animate attributeName="y" from="-100" to="138" dur="4s" begin=".25s" repeatCount="indefinite"/>
+                    <animate attributeName="x" values="-45;-60;-32" dur="4s" begin="0.01s" repeatCount="indefinite"/>
                 </use>
+                 </g>
 
              <!-- Bola 3 -->
+              <g id="ball3" class="draggable" pointer-events="all">
                   <use href="#ball" x="96" y="-36">
-    <animate attributeName="y" from="-36" to="138" dur="1.8s" begin=".5s" repeatCount="indefinite"/>
-    <animate attributeName="x" values="96;106;98" dur="1.8s" begin=".5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.9;1" dur="1.8s" begin=".5s" repeatCount="indefinite"/>
+                    <animate attributeName="y" from="-100" to="138" dur="5s" begin=".5s" repeatCount="indefinite"/>
+                    <animate attributeName="x" values="-35;-50;-60" dur="2.8s" begin=".5s" repeatCount="indefinite"/>
                   </use>
+                   </g>
          </g>
   
 </svg>
+
+
 </div>
+
+
+<script>
+  const svg = document.querySelector('svg');
+
+  // Função para converter coordenadas da tela para o SVG
+  function toSvgPoint(evt) {
+    const pt = svg.createSVGPoint();
+    pt.x = evt.clientX;
+    pt.y = evt.clientY;
+    return pt.matrixTransform(svg.getScreenCTM().inverse());
+  }
+
+  // Função genérica de arrastar
+  function makeDraggable(el) {
+    let dragging = false;
+    let offsetX = 0, offsetY = 0;
+    let tx = 0, ty = 0;
+
+    function setTranslate(x, y) {
+      el.setAttribute('transform', `translate(${x}, ${y})`);
+    }
+
+    el.addEventListener('pointerdown', (evt) => {
+      evt.preventDefault();
+      dragging = true;
+
+      if (svg.pauseAnimations) svg.pauseAnimations();
+
+      const p = toSvgPoint(evt);
+      offsetX = p.x - tx;
+      offsetY = p.y - ty;
+
+      el.setPointerCapture(evt.pointerId);
+    });
+
+    el.addEventListener('pointermove', (evt) => {
+      if (!dragging) return;
+      const p = toSvgPoint(evt);
+      tx = p.x - offsetX;
+      ty = p.y - offsetY;
+      setTranslate(tx, ty);
+    });
+
+    function endDrag(evt) {
+      if (!dragging) return;
+      dragging = false;
+
+      if (svg.unpauseAnimations) svg.unpauseAnimations();
+      try { el.releasePointerCapture(evt.pointerId); } catch {}
+    }
+
+    el.addEventListener('pointerup', endDrag);
+    el.addEventListener('pointercancel', endDrag);
+  }
+
+  // Ativa para todas as bolas
+  makeDraggable(document.getElementById('ball1'));
+  makeDraggable(document.getElementById('ball2'));
+  makeDraggable(document.getElementById('ball3'));
+</script>
+
 </body>
 </html>
