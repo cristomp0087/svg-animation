@@ -76,7 +76,7 @@
     </style>
   </defs>
   <g id="reference">
- 
+    <image width="1200" height="800" transform="scale(.26 .24)" xlink:href="../Documents/IMD/Digital Grafics/background.jpg"/>
     <ellipse class="cls-24" cx="106.39" cy="138.93" rx="26.28" ry="5.95"/>
   </g>
   <g id="head">
@@ -153,11 +153,5 @@
     <g id="eyerbrow_left" data-name="eyerbrow left">
       <path class="cls-10" d="M237.26,79.8c1.26,1.29.03,2.88-.47,2.97-.67.12-.7.1-1.44-.27-1.74-1.47-3.05-1.42-3.45-1.46-.82-.07-1.23-.36-1.48-1.53-.09-.71.68-1.19,1.22-1.39.32-.12,1.46-.54,3.45.14,1.43.69,1.08.43,2.16,1.54Z"/>
     </g>
-
-    <g id "balls">
-        <circle "id ball 1" cx="60" cy="160" r="10" fill="#ff6666">
-        <circle "id ball 2" cx="60" cy="160" r="10" fill="#a6c560ff">
-        <circle "id ball 3" cx="60" cy="160" r="10" fill="#696ab1ff">s
-        </g>
   </g>
 </svg>
