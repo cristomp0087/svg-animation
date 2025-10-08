@@ -146,4 +146,28 @@
   <g id="eyerbrow_left">
     <path class="st9" d="M237.26,79.8c1.26,1.29.03,2.88-.47,2.97-.67.12-.7.1-1.44-.27-1.74-1.47-3.05-1.42-3.45-1.46-.82-.07-1.23-.36-1.48-1.53-.09-.71.68-1.19,1.22-1.39.32-.12,1.46-.54,3.45.14,1.43.69,1.08.43,2.16,1.54Z"/>
   </g>
+
+    <g id="balls">
+         <circle id="ball1" cx="80" cy="130" r="10" fill="#c8444dff" />
+        <circle id="ball2" cx="80" cy="70" r="10" fill="#66cc66" />
+        <circle id="ball3" cx="80" cy="100" r="10" fill="#6699ff" />
+    </g>
+
+<style>
+  #balls circle {
+    cursor: pointer;
+    transition: transform .3s ease, fill .3s ease;
+  }
+  #ball1:hover { fill: #ff3333; transform: scale(1.3); }
+  #ball2:hover { fill: #33cc33; transform: scale(1.3); }
+  #ball3:hover { fill: #3366ff; transform: scale(1.3); }
+</style>
+
+<style>  circle:hover {
+    fill: gold;
+    transform: scale(1.2);
+    transition: transform 0.3s ease, fill 0.3s ease;
+  }
+</style>
+
 </svg>
