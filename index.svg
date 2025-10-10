@@ -3,8 +3,7 @@
 <image href="background.jpg" width="1920" height="1080" x="0" y="0" preserveAspectRatio="xMidYMid slice" />
   <defs>
     
-    
-    
+  
     <style>
       .cls-1 {
         fill: #6ba0c7;
@@ -107,7 +106,6 @@ svg.clicked-2 #ear_rigth {
     transform: rotate(-15deg);
     transform-origin: 1179.46px 488.12px;
 }
-
 
 
 
