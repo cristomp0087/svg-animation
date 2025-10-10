@@ -56,10 +56,13 @@
       transform-origin: center;
       cursor: pointer;
       transition: transform 0.3s ease;
+      
 }
 
 #ball1:hover, #ball2:hover, #ball3:hover, #ball4:hover, #ball5:hover {
     transform: scale(1.3);
+    fill: #eff164ff;
+    opacity: 0.8;
 }
 
 
