@@ -301,6 +301,7 @@ svg.clicked-5 #eyerbrow_rigth {
     ];
     
     
+    
     mappings.forEach(map => {
       const element = svg.getElementById(map.id);
       
